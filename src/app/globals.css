@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  /* Flächen – dunkel mit Blau-Violett-Unterton statt neutralem Schwarz.
+     Werte hier sind die Dark-Mode-Defaults; :root[data-theme="light"] weiter
+     unten überschreibt dieselben Custom Properties für den hellen Modus. */
+  --color-bg: #121021;
+  --color-surface: #1b1930;
+  --color-surface-elevated: #211e3a;
+  --color-border: #332f4c;
+  --color-hover: #282544;
+
+  /* Text */
+  --color-text-primary: #e7e9ee;
+  --color-text-secondary: #9296ab;
+  --color-text-tertiary: #8b8fa0;
+
+  /* Akzent: durchgehender Blau→Violett-Verlauf laut UI-Referenz, für große/dekorative
+     Flächen (aktiver Workspace, Sende-Button, Banner, aktive Kanal-Umrandung).
+     Theme-unabhängig, da nur auf weißen Icons/großen Flächen eingesetzt. */
+  --color-accent-from: #8b5cf6;
+  --color-accent-to: #3b82f6;
+
+  /* Solide Variante für Text/Links/Fokus-Ring/@Mentions – Dark-Mode-Default. */
+  --color-accent: #5b8def;
+  --color-accent-hover: #4577e0;
+  --color-accent-subtle: rgba(91, 141, 239, 0.14);
+  /* Für weißen Text auf vollflächigem Accent-Hintergrund (Buttons, Badges): theme-
+     unabhängig, da Kontrast nur von diesem Ton selbst und dem weißen Text abhängt. */
+  --color-accent-strong: #4971bf;
+  --color-accent-strong-hover: #4063a7;
+
+  /* Status */
+  --color-online: #34d399;
+  --color-away: #fbbf24;
+  --color-offline: #5c6275;
+  /* Als Fließtext/Fehlermeldung – Dark-Mode-Default (hell genug für dunklen Hintergrund). */
+  --color-danger: #f87171;
+  /* Für weißen Text auf vollflächigem Rot (Unread-Badges, Notification-Punkt):
+     theme-unabhängig, da --color-danger selbst dafür in Dark Mode zu hell ist
+     (nur 2.8:1 mit weißem Text – reicht nicht für AA). */
+  --color-danger-strong: #c93a3a;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Heller Modus: überschreibt dieselben Custom Properties, die @theme oben für
+   Dark Mode setzt. Wird über das data-theme-Attribut auf <html> umgeschaltet
+   (siehe useTheme-Hook), Dark bleibt der Default ohne Attribut. */
+:root[data-theme="light"] {
+  --color-bg: #e2e5ee;
+  --color-surface: #f1f2f7;
+  --color-surface-elevated: #f7f8fb;
+  --color-border: #d7dae4;
+  --color-hover: #e8eaf1;
+
+  --color-text-primary: #1a1b25;
+  --color-text-secondary: #52556b;
+  --color-text-tertiary: #5d6178;
+
+  --color-accent: #3958c9;
+  --color-accent-hover: #2d47a8;
+  --color-accent-subtle: rgba(57, 88, 201, 0.1);
+
+  --color-danger: #c93a3a;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: Arial, Helvetica, sans-serif;
+}
