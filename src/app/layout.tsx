@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { MotionConfig } from "framer-motion";
 import { AuthProvider } from "@/lib/hooks/useAuth";
 import "./globals.css";
+import { LegalFooter } from "./_legal/LegalPage";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,6 +54,7 @@ export default function RootLayout({
         <MotionConfig reducedMotion="user">
           <AuthProvider>{children}</AuthProvider>
         </MotionConfig>
+        <LegalFooter />
       </body>
     </html>
   );
